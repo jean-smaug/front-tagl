@@ -1,0 +1,61 @@
+
+figure{
+    margin: 0;
+    padding: 0;
+}
+
+.modal{
+    overflow-x: hidden;
+}
+
+#add_button{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 80px;
+}
+
+#filter-container{
+    /*width: 200px;*/
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+.filter-container-box{
+    -webkit-margin-before:0em;
+    -webkit-margin-after:0em;
+    width: 95%;
+    border: solid 1px #ddd;
+    border-collapse: collapse;
+    /*width: 100%;*/
+    /*background-color: #666;*/
+    /*margin: 2px;*/
+}
+.filter-container-box:hover{
+    cursor: pointer;
+}
+
+#filter-preview-container{
+    height: 100%;
+    margin: auto;
+}
+
+#filter-preview-container figure{
+    height: 80%;
+    margin: auto;
+    display: table;
+}
+
+#filter-preview-container figure img{
+    height: 100%;
+    margin: auto;
+    width: auto;
+}
+
+.filter-container-box img{
+    width: 100%;
+    vertical-align: middle;
+}

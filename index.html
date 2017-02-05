@@ -3,51 +3,88 @@
     <head>
         <meta charset="utf-8">
         <title>Tagl</title>
+        <link rel="stylesheet" href="css/materialize-overriding-sheet.css">
         <link rel="stylesheet" href="css/materialize.min.css">
         <link rel="stylesheet" href="css/materialize-stepper.min.css">
+        <link rel="stylesheet" href="css/cssgram.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
+
+
+    <!-- <a class="waves-effect waves-light btn" href="#modal1">Modal</a> -->
+    <a id="add_button" class="btn-floating btn-large waves-effect waves-light blue" href="#modal1"><i class="material-icons">add</i></a>
+
+    <div id="modal1" class="modal">
         <ul class="stepper horizontal">
-   <li class="step active">
-      <div class="step-title waves-effect">E-mail</div>
-      <div class="step-content">
-         <div class="row">
-            <div class="input-field col s12">
-               <input id="email" name="email" type="email" class="validate" required>
-               <label for="first_name">Your e-mail</label>
-            </div>
-         </div>
-         <div class="step-actions">
-            <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-         </div>
-      </div>
-   </li>
-   <li class="step">
-      <div class="step-title waves-effect">Passo 2</div>
-      <div class="step-content">
-         <div class="row">
-            <div class="input-field col s12">
-               <input id="password" name="password" type="password" class="validate" required>
-               <label for="password">Your password</label>
-            </div>
-         </div>
-         <div class="step-actions">
-            <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-            <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
-         </div>
-      </div>
-   </li>
-   <li class="step">
-      <div class="step-title waves-effect">Fim!</div>
-      <div class="step-content">
-         Finish!
-         <div class="step-actions">
-            <button class="waves-effect waves-dark btn" type="submit">SUBMIT</button>
-         </div>
-      </div>
-   </li>
-</ul>
+            <li class="step active">
+                <div class="step-title waves-effect">Upload</div>
+                <div class="step-content">
+                    <!-- content -->
+                    <div class="step-actions">
+                        <button class="waves-effect waves-dark btn next-step">CONTINUER</button>
+                    </div>
+                </div>
+            </li>
+            <li class="step">
+                <div class="step-title waves-effect">Filtre</div>
+                <div class="step-content row">
+                    <div class="col s2" id="filter-container"></div>
+                    <div id="filter-preview-container" class="col s10">
+                        <figure class="nashville">
+                            <img src="photo.jpg"/>
+                        </figure>
+                    <div class="step-actions">
+                        <button class="waves-effect waves-dark btn next-step">CONTINUER</button>
+                        <button class="waves-effect waves-dark btn-flat previous-step">RETOUR</button>
+                    </div>
+                </div>
+            </li>
+            <li class="step">
+                <div class="step-title waves-effect">Description</div>
+                <div class="step-content">
+                    <div class="row">
+                        <form class="col s7">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="first_name">Titre</label>
+                                    <input placeholder="Le titre de votre photo" id="first_name" type="text" class="validate">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="textarea1">Description</label>
+                                    <textarea id="textarea1" class="materialize-textarea" placeholder="Une tite' description"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="chips chips-placeholder col s12"></div>
+                            </div>
+                            <div class="row">
+                                <label>Commentaires</label>
+                                <div class="switch">
+                                    <label>
+                                    Off
+                                    <input type="checkbox">
+                                    <span class="lever"></span>
+                                    On
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- <div class="col s5" id="upload-step2-image-container">
+
+                        </div> -->
+                    </div>
+                    <div class="step-actions">
+                        <button class="waves-effect waves-dark btn" type="submit">CONFIRMER</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
         <!-- <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
 
         <div id="modal1" class="modal" style="z-index: 1003; display: block; opacity: 1; transform: scaleX(1); top: 10%;">
@@ -68,7 +105,28 @@
             // $('.modal').modal();
             // $(function(){
            $('.stepper').activateStepper();
+           $('.modal').modal();
+           $('.chips').material_chip();
+           $('.chips-initial').material_chip({
+               data: [{
+                   tag: 'Apple',
+               }, {
+                   tag: 'Microsoft',
+               }, {
+                   tag: 'Google',
+               }],
+           });
+           $('.chips-placeholder').material_chip({
+               placeholder: 'Enter a tag',
+               secondaryPlaceholder: '+Ajouter un tag',
+           });
+           var chip = {
+                tag: 'chip content',
+                image: '', //optional
+                id: 1, //optional
+            };
         });
         </script>
+        <script type="text/javascript" src="js/filter.js"></script>
     </body>
 </html>

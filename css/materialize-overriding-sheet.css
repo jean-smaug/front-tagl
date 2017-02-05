@@ -1,0 +1,9 @@
+ul.stepper.horizontal .step-actions {
+   background-color: inherit !important;
+}
+ul.stepper.horizontal .step-content{
+    padding: 15px 0px 20px 0px !important;
+}
+ul.stepper.horizontal{
+    margin-top: 0 !important;
+}

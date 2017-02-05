@@ -242,7 +242,8 @@ ul.stepper.horizontal .step-content {
    overflow-y: auto;
    overflow-x: hidden;
    margin: 0;
-   padding: 20px 20px 76px 20px;
+   /*padding: 20px 20px 76px 20px;*/
+   padding: 20px 20px 20px 20px;
 }
 
 .card-content ul.stepper.horizontal .step-content {
@@ -292,7 +293,7 @@ ul.stepper.horizontal .step-actions {
    left: 0;
    width: 100%;
    padding: 20px;
-   background-color: #fff;
+   /*background-color: #fff;*/
    -webkit-box-orient: horizontal;
    -webkit-box-direction: reverse;
    -ms-flex-direction: row-reverse;
