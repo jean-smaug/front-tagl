@@ -7,3 +7,7 @@ ul.stepper.horizontal .step-content{
 ul.stepper.horizontal{
     margin-top: 0 !important;
 }
+
+.modal{
+    max-height: 90% !important;
+}
