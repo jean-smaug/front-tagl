@@ -8,66 +8,91 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <ul class="stepper horizontal">
-   <li class="step active">
-      <div class="step-title waves-effect">E-mail</div>
-      <div class="step-content">
-         <div class="row">
-            <div class="input-field col s12">
-               <input id="email" name="email" type="email" class="validate" required>
-               <label for="first_name">Your e-mail</label>
-            </div>
-         </div>
-         <div class="step-actions">
-            <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-         </div>
-      </div>
-   </li>
-   <li class="step">
-      <div class="step-title waves-effect">Passo 2</div>
-      <div class="step-content">
-         <div class="row">
-            <div class="input-field col s12">
-               <input id="password" name="password" type="password" class="validate" required>
-               <label for="password">Your password</label>
-            </div>
-         </div>
-         <div class="step-actions">
-            <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-            <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
-         </div>
-      </div>
-   </li>
-   <li class="step">
-      <div class="step-title waves-effect">Fim!</div>
-      <div class="step-content">
-         Finish!
-         <div class="step-actions">
-            <button class="waves-effect waves-dark btn" type="submit">SUBMIT</button>
-         </div>
-      </div>
-   </li>
-</ul>
-        <!-- <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
+        <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
 
         <div id="modal1" class="modal" style="z-index: 1003; display: block; opacity: 1; transform: scaleX(1); top: 10%;">
             <div class="modal-content">
-                <h4>Uploader une image</h4>
+            <ul class="stepper horizontal">
+               <li class="step active">
+                  <div class="step-title waves-effect">Upload</div>
+                  <div class="step-content">
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <div class="file-field input-field">
+                              <div class="btn">
+                                <span>Uploader une image</span>
+                                <input type="file" name="image">
+                                <img id="preview" alt="Uploaded Image Preview Holder" width="250px" height="250px">
+                              </div>
+                              <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                              </div>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="step-actions">
+                        <button class="waves-effect waves-dark btn next-step">Suivant</button>
+                     </div>
+                  </div>
+               </li>
+               <li class="step">
+                  <div class="step-title waves-effect">Filtre</div>
+                  <div class="step-content">
+                     <div class="row">
+                        <div class="input-field col s12">
+
+                        </div>
+                     </div>
+                     <div class="step-actions">
+                        <button class="waves-effect waves-dark btn next-step">Suivant</button>
+                        <button class="waves-effect waves-dark btn-flat previous-step">Retour</button>
+                     </div>
+                  </div>
+               </li>
+               <li class="step">
+                  <div class="step-title waves-effect">Description</div>
+                  <div class="step-content">
+                     Description
+                     <div class="step-actions">
+                        <button class="waves-effect waves-dark btn" type="submit">Valider</button>
+                     </div>
+                  </div>
+               </li>
+            </ul>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-        </div> -->
+        </div>
 
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/materialize-stepper.min.js"></script>
+        <script type="text/javascript" src="js/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="js/jquery.fileupload.js"></script>
+
         <script type="text/javascript">
         $(document).ready(function(){
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-            // $('.modal').modal();
-            // $(function(){
-           $('.stepper').activateStepper();
+            // Modal et stepper
+            $('.modal').modal();
+            $('.stepper').activateStepper();
+
+
+            // Preview picture
+            function readURL(input) {
+              if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    console.log(e)
+                  $('#preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+              }
+            }
+
+            $("input[name=\"image\"]").on('change', function() {
+                console.log(this)
+
+              readURL(this);
+            });
         });
         </script>
     </body>
